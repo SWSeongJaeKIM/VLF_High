@@ -1,0 +1,164 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_CAPACITY 5
+#define ERROR_VALUE 404
+
+typedef struct stack
+{
+	
+	int top;			// 구조체 상 탑
+	int data[MAX_CAPACITY];		//내가 데이터 크기를 몇으로 할건지
+} Stack;
+
+void StackInitialize(Stack *stk)
+{
+	stk->top = -1;			//헷갈리지 않게 -1 쓰는거 비어있으면 -1인걸로
+}
+
+int StackIsEmpty(Stack *stk)		//비었는지 안비었는지
+{
+	return (stk->top == -1);
+}
+
+int StackSize(Stack* stk)
+{
+	return (stk->top +1);
+}
+
+void StackPrint(Stack *stk)
+{
+	printf("Stack ::");
+	for (int i = stk->top; i >= 0; i--)
+	{
+		printf("%d", stk->data[i]);
+	}
+	printf("\n");
+}
+
+void StackPush(Stack *stk, int value)		//데이터 집어넣는거
+{
+	if (stk->top < MAX_CAPACITY -1)		//이게 인덱스 다 찿는지 안찿는지
+	{
+		stk->top++;
+		stk->data[stk->top] = value;
+	}
+	else
+	{
+		printf("stack overflow\n");
+	}
+}
+
+int StackPop(Stack *stk)		//제일 위에있는 데이터 을 꺼내는것
+{
+	if (stk->top >= 0)
+	{
+		int value = stk->data[stk->top];
+		stk->top--;
+		return value;
+	}
+	printf("stack empty\n");
+	return ERROR_VALUE;
+}
+
+int StackTop(Stack *stk)	//현재 몇개 있는지 확인 하는 함수
+{
+	int value = stk->data[stk->top];
+	return value;
+}
+
+int main()
+{
+	Stack stk;
+	StackInitialize(&stk);
+	StackPush(&stk, 1);
+	StackPush(&stk, 2);
+	StackPush(&stk, 3);
+	StackPush(&stk, 4);
+	StackPush(&stk, 5);
+	StackPush(&stk, 6);
+	StackPrint(&stk);
+	return 0;
+}
+
+
+	int *list;
+	list = (int*)malloc(3*sizeof(int));
+	if(list == NULL)
+	{
+		printf("동적 메모리 할당 오류\n");
+		exit(1);
+	}
+	list[0]=10;
+	list[1]=20;
+	list[2]=30;
+	free(list);
+	return 0;
+	
+ }
+	
+
+#include <stdio.h>
+#include < stdlib.h>
+
+int main(void)
+{
+	int *list;
+	int i, students;
+	
+	printf("학생의 수");
+	scanf("%d", &students);
+	list = (int *)malloc(students * sizeof(int));
+	if (list = NULL)
+	{
+		printf("동적 메모리 할당 오류 \n");
+		exit(1);
+	}
+	
+	for(i=0; i<students; i++)
+	{
+		printf("학생 #%d 성적: ", i+1);
+		scanf("#d", &list[i]);
+	}
+	printf("=====================\n");
+	for(i=0; i<students; i++)
+	{
+		printf("학생 #%d 성적: #d \n", i+1, list[i]);
+	}
+	printf("=====================\n");
+	free(list);
+
+	
+	return 0;
+}
+
+
+int main(void)
+	<string.h>
+	struck Book
+{
+	int number;
+	char title[50];
+}
+{
+	struct Book *p;
+	
+	p = (struct Book *)malloc(4 * sizeof(struct Book));
+	
+	if(p == NULL)
+	{
+		printf("메모리 할당 오류 \n");
+		exit(1);
+	}
+	
+	p[0].number = 1;
+	strcpy(p[0].title,"C Programing");
+	
+	p[1].number = 2;
+	strcpy(p[1].title,"Data Struccture");
+	
+	free(p)	
+	return 0;
+}
+
+	
